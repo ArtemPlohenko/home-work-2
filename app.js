@@ -113,4 +113,43 @@ console.log(calc(5, 3, 2));
 console.log(calc(6, 2, 3));
 console.log(calc(5, 3, 4));
 
-// 7
+// 7  // Перевірка на унікальність ел. в масиві
+function findUnique(arr) {
+  let length = arr.length;
+  let newArr = [];
+
+  for (let i = 0; i < length; i++) {
+    // for (let j = i + 1; j < length; j++) {
+    //   if (arr[i] === arr[j]) {
+    //     return false;
+    //   }
+    // }
+
+    // or
+
+    if (newArr.includes(arr[i])) {
+      return false;
+    }
+    newArr.push(arr[i]);
+    console.log(newArr);
+  }
+  return true;
+}
+console.log(findUnique([1, 2, 3, 4, 8, 4])); // false
+console.log(findUnique([1, 2, 3, 5, 6])); // true
+
+// ***
+const tom = create("pass_for_Tom");
+
+function create(password) {
+  return function (some) {
+    if (some == password) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+}
+
+console.log(tom("pass_for_Tom"));
+console.log(tom("pass_for_tom"));
